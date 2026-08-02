@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Styled Webpage</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- This is the top part of the webpage -->
+  <header>
+    <h1>My Styled Webpage</h1>
+    <p>This page shows how HTML5 and CSS3 are used to make a beautiful webpage.</p>
+  </header>
+
+  <!-- This is the navigation bar with links -->
+  <nav>
+    <a class="nav-link" href="#home">Home</a>
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main content area -->
+  <div class="container">
+    <!-- HTML5 canvas area for drawing shapes and text -->
+    <canvas id="myCanvas" width="500" height="220"></canvas>
+
+    <!-- Three content cards for the main information -->
+    <section class="cards">
+      <article class="card">
+        <h2>Rectangle</h2>
+        <p>This card represents the rectangle drawn on the canvas using HTML5 graphics.</p>
+        <button>Learn More</button>
+      </article>
+      <article class="card">
+        <h2>Circle</h2>
+        <p>This card represents the circle drawn on the canvas with a smooth curved shape.</p>
+        <button>Learn More</button>
+      </article>
+      <article class="card">
+        <h2>Line</h2>
+        <p>This card represents the straight line drawn on the canvas for simple design.</p>
+        <button>Learn More</button>
+      </article>
+    </section>
+  </div>
+
+  <!-- Footer section -->
+  <footer>
+    <p><strong>About:</strong> This webpage demonstrates HTML5 canvas graphics and CSS3 styling.</p>
+    <p><strong>Contact:</strong> Email: kavya@example.com <br> Phone: +91 98765 43210
+</p>
+  </footer>
+
+  <script>
+    // Get the canvas element from HTML
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // 1. Draw rectangle first
+    ctx.fillStyle = '#e0f2fe';
+    ctx.fillRect(40, 50, 160, 90);
+
+    // 2. Draw circle second
+    ctx.beginPath();
+    ctx.arc(340, 95, 45, 0, Math.PI * 2);
+    ctx.fillStyle = '#f472b6';
+    ctx.fill();
+
+    // 3. Draw line third
+    ctx.beginPath();
+    ctx.moveTo(90, 150);
+    ctx.lineTo(360, 150);
+    ctx.strokeStyle = '#4f46e5';
+    ctx.lineWidth = 4;
+    ctx.stroke();
+
+    // 4. Draw text last, below the line
+    ctx.font = 'bold 24px Segoe UI';
+    ctx.fillStyle = '#1f2937';
+    ctx.fillText('Kavya', 220, 190);
+  </script>
+</body>
+</html>

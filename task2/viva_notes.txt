@@ -1,0 +1,44 @@
+Viva Overview for My Styled Webpage
+
+1. What is HTML5?
+   - HTML5 is the latest version of HTML used to create the structure of a webpage.
+   - It helps us add text, images, links, forms, and other content.
+
+2. What is CSS3?
+   - CSS3 is used to style the webpage.
+   - It controls colors, fonts, spacing, borders, shadows, and hover effects.
+
+3. What is the canvas element?
+   - The canvas element is used to draw shapes like rectangles, circles, and lines using JavaScript.
+   - In this task, the canvas is used to draw one rectangle, one circle, one line, and text.
+
+4. What is the purpose of the header?
+   - The header shows the title of the webpage.
+
+5. What is the purpose of the navigation bar?
+   - The navigation bar contains links like Home, About, and Contact.
+
+6. What is a content card?
+   - A content card is a box that holds information in a neat and attractive way.
+
+7. What are some CSS properties used here?
+   - background-color
+   - background with gradient
+   - font-family and font-size
+   - border and border-radius
+   - margin and padding
+   - box-shadow and text-shadow
+   - hover effects
+
+8. Why are hover effects used?
+   - Hover effects make the webpage feel interactive and attractive.
+   - They change the button or link appearance when the mouse moves over it.
+
+9. How is the webpage structured?
+   - HTML is used for structure.
+   - CSS is used for styling.
+   - JavaScript is used to draw on the canvas.
+
+10. What did you learn from this task?
+   - I learned how to design a webpage using HTML5 and CSS3.
+   - I also learned how to create simple graphics on a canvas and style the page beautifully.
