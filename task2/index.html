@@ -22,8 +22,14 @@
 
   <!-- Main content area -->
   <div class="container">
-    <!-- HTML5 canvas area for drawing shapes and text -->
-    <canvas id="myCanvas" width="500" height="220"></canvas>
+    <!-- HTML5 canvas area styled with CSS3 only -->
+    <div class="canvas-wrapper">
+      <canvas id="myCanvas" width="500" height="220" aria-label="Decorative HTML5 canvas"></canvas>
+      <div class="canvas-label">
+        <span>HTML5 Canvas</span>
+        <span>Styled with CSS3</span>
+      </div>
+    </div>
 
     <!-- Three content cards for the main information -->
     <section class="cards">
@@ -47,38 +53,9 @@
 
   <!-- Footer section -->
   <footer>
-    <p><strong>About:</strong> This webpage demonstrates HTML5 canvas graphics and CSS3 styling.</p>
+    <p><strong>About:</strong> This webpage demonstrates HTML5 canvas and CSS3 styling.</p>
     <p><strong>Contact:</strong> Email: kavya@example.com <br> Phone: +91 98765 43210
 </p>
   </footer>
-
-  <script>
-    // Get the canvas element from HTML
-    const canvas = document.getElementById('myCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // 1. Draw rectangle first
-    ctx.fillStyle = '#e0f2fe';
-    ctx.fillRect(40, 50, 160, 90);
-
-    // 2. Draw circle second
-    ctx.beginPath();
-    ctx.arc(340, 95, 45, 0, Math.PI * 2);
-    ctx.fillStyle = '#f472b6';
-    ctx.fill();
-
-    // 3. Draw line third
-    ctx.beginPath();
-    ctx.moveTo(90, 150);
-    ctx.lineTo(360, 150);
-    ctx.strokeStyle = '#4f46e5';
-    ctx.lineWidth = 4;
-    ctx.stroke();
-
-    // 4. Draw text last, below the line
-    ctx.font = 'bold 24px Segoe UI';
-    ctx.fillStyle = '#1f2937';
-    ctx.fillText('Kavya', 220, 190);
-  </script>
 </body>
 </html>
