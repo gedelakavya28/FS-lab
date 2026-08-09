@@ -25,10 +25,6 @@
     <!-- HTML5 canvas area styled with CSS3 only -->
     <div class="canvas-wrapper">
       <canvas id="myCanvas" width="500" height="220" aria-label="Decorative HTML5 canvas"></canvas>
-      <div class="canvas-label">
-        <span>HTML5 Canvas</span>
-        <span>Styled with CSS3</span>
-      </div>
     </div>
 
     <!-- Three content cards for the main information -->
@@ -54,8 +50,38 @@
   <!-- Footer section -->
   <footer>
     <p><strong>About:</strong> This webpage demonstrates HTML5 canvas and CSS3 styling.</p>
-    <p><strong>Contact:</strong> Email: kavya@example.com <br> Phone: +91 98765 43210
-</p>
+    <p><strong>Contact:</strong> Email: styling26@gmail.com <br> Phone: +91 98765 43210
+    </p>
   </footer>
+
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Rectangle
+    ctx.fillStyle = '#4f46e5';
+    ctx.fillRect(60, 50, 120, 70);
+
+    // Circle
+    ctx.beginPath();
+    ctx.arc(330, 90, 45, 0, Math.PI * 2);
+    ctx.fillStyle = '#ec4899';
+    ctx.fill();
+
+    // Line
+    ctx.beginPath();
+    ctx.moveTo(70, 160);
+    ctx.lineTo(360, 160);
+    ctx.strokeStyle = '#06b6d4';
+    ctx.lineWidth = 6;
+    ctx.stroke();
+
+    // Name text
+    ctx.font = 'bold 22px Segoe UI';
+    ctx.fillStyle = '#1f2937';
+    ctx.fillText('Kavya', 260, 195);
+  </script>
 </body>
 </html>

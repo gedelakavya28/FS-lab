@@ -122,12 +122,21 @@ button:hover {
 }
 
 /* HTML5 canvas styling */
+.canvas-wrapper {
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px solid #dbeafe;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  margin: 20px 0 24px;
+}
+
 canvas {
   display: block;
   width: 100%;
   max-width: 500px;
   height: auto;
-  margin: 20px auto 10px;
+  margin: 0 auto 10px;
   border: 3px solid var(--primary);
   border-radius: 12px;
   background: linear-gradient(135deg, #ffffff, #eef2ff);
