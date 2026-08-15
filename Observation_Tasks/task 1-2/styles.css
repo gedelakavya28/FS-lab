@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #eef4ff, #f8f4ff);
+  color: #1f2937;
+}
+
+.page-wrap {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px 24px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #1e3a8a;
+}
+
+.student-form {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.student-form label {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.student-form input {
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.student-form input:focus {
+  outline: 2px solid #60a5fa;
+  border-color: #60a5fa;
+}
+
+button {
+  margin-top: 12px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+#profileContainer {
+  margin-top: 30px;
+}
+
+.profile-card {
+  background: #f8fafc;
+  border: 2px solid #dbeafe;
+  border-radius: 16px;
+  padding: 22px 20px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.profile-card h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #1d4ed8;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 1.02rem;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: 700;
+  color: #334155;
+}
+
+.value {
+  color: #0f172a;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .page-wrap {
+    padding: 20px 16px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .value {
+    text-align: left;
+  }
+}
