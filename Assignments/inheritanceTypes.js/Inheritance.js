@@ -1,5 +1,5 @@
 //Single Inheritance
-console.log("Single Inheritance");
+console.log("Single Inheritance:");
 class Animal {
     constructor(name){
         this.name=name;
@@ -18,7 +18,7 @@ myDog.eat();
 myDog.bark();
 
 //Multilevel Inheritance
-console.log("Multilevel Inheritance");
+console.log("Multilevel Inheritance:");
 class Vehicle {
     move(){
         console.log("Moving forward");
@@ -40,7 +40,7 @@ v.wheels();
 v.windows();
 
 //Hierarchial Inheritance
-console.log("Hierarchial Inheritance");
+console.log("Hierarchial Inheritance:");
 class User{
     constructor(username){
         this.username = username;
@@ -67,7 +67,7 @@ a.deleteUser();
 c.checkout();
 
 //Multiple Inheritance
-console.log("Multiple Inheritance");
+console.log("Multiple Inheritance:");
 //Using Mixins
 const hall = {
     sofa(){
