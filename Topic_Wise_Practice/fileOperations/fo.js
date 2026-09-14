@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-// 1. Write/Create file
+// 1. Create / Write file
 fs.writeFileSync('sample.txt', 'Hello! Welcome to ANITS College.');
-console.log('File created and data written.');
+console.log('sample.txt created.');
 
 // 2. Read file
 let data = fs.readFileSync('sample.txt', 'utf8');
@@ -16,10 +16,17 @@ console.log('Data appended.');
 data = fs.readFileSync('sample.txt', 'utf8');
 console.log('Updated content:', data);
 
-// 5. Rename file
-fs.renameSync('sample.txt', 'newSample.txt');
-console.log('File renamed.');
+// 5. Create a new file
+fs.writeFileSync(
+    'renameDelete.txt',
+    'This file is for rename and delete operations.'
+);
+console.log('renameDelete.txt created.');
 
-// 6. Delete file
-fs.unlinkSync('newSample.txt');
-console.log('File deleted.');
+// 6. Rename the file
+fs.renameSync('renameDelete.txt', 'renamedFile.txt');
+console.log('renameDelete.txt renamed to renamedFile.txt.');
+
+// 7. Delete the renamed file
+fs.unlinkSync('renamedFile.txt');
+console.log('renamedFile.txt deleted.');
