@@ -1,51 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My College Website</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
 
-<header>
-    <h1>My College Website</h1>
-    <p>Welcome to our webpage</p>
-</header>
-
-<nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Courses</a>
-    <a href="#">Contact</a>
-</nav>
-
-<section>
-    <h2>About Us</h2>
-    <p>Our college provides quality education and helps students develop technical and professional skills.</p>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>Courses</h3>
-            <p>We offer various technical and professional courses.</p>
+    <header class="site-header">
+        <div class="header-content">
+            <p class="eyebrow">Learn • Grow • Succeed</p>
+            <h1>My College Website</h1>
+            <p>Building bright futures through education and innovation.</p>
         </div>
+    </header>
 
-        <div class="card">
-            <h3>Facilities</h3>
-            <p>Modern labs, library and other facilities are provided.</p>
-        </div>
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-        <div class="card">
-            <h3>Activities</h3>
-            <p>Students can participate in sports and cultural activities.</p>
-        </div>
+    <main id="home">
+        <section class="intro" id="about">
+            <p class="section-label">Discover your potential</p>
+            <h2>Learn with purpose</h2>
+            <p>Our college provides quality education and helps students develop technical and professional skills.</p>
+        </section>
 
-    </div>
-</section>
+        <section class="cards-section" id="courses" aria-labelledby="opportunities-heading">
+            <h2 id="opportunities-heading">What we offer</h2>
+            <div class="cards">
 
-<footer>
-    <p>© 2026 My College Website</p>
-</footer>
+                <article class="card">
+                    <span class="card-number">01</span>
+                    <h3>Courses</h3>
+                    <p>Explore technical and professional courses designed for the future.</p>
+                </article>
+
+                <article class="card">
+                    <span class="card-number">02</span>
+                    <h3>Facilities</h3>
+                    <p>Use modern labs, a well-stocked library, and student-friendly spaces.</p>
+                </article>
+
+                <article class="card">
+                    <span class="card-number">03</span>
+                    <h3>Activities</h3>
+                    <p>Take part in sports, cultural events, clubs, and campus activities.</p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <p>Have questions? Visit our campus and start your journey.</p>
+        <small>&copy; 2026 My College Website</small>
+    </footer>
 
 </body>
 </html>
