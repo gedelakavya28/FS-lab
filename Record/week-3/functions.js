@@ -1,43 +1,57 @@
-// Array
-let marks = [85, 90, 78, 88, 95];
+// Student marks stored in an array
+const marks = [85, 90, 78, 88, 95];
+const passMark = 40;
 
-// Function to display marks
-function displayMarks(arr) {
-    console.log("Student Marks: - function.js:6", arr);
+function displayMarks(markList) {
+    console.log("Student marks:", markList.join(", "));
 }
 
-// Function to calculate total
-function totalMarks(arr) {
-    let total = 0;
+function calculateTotal(markList) {
+    return markList.reduce((total, mark) => total + mark, 0);
+}
 
-    for (let i = 0; i < arr.length; i++) {
-        total += arr[i];
+function calculateAverage(markList) {
+    if (markList.length === 0) {
+        return 0;
     }
 
-    return total;
+    return calculateTotal(markList) / markList.length;
 }
 
-// Function to calculate average
-function averageMarks(arr) {
-    return totalMarks(arr) / arr.length;
+function findHighest(markList) {
+    return Math.max(...markList);
 }
 
-// Function to add a new mark
-function addMark(arr, mark) {
-    arr.push(mark);
-    return arr;
+function findLowest(markList) {
+    return Math.min(...markList);
 }
 
-displayMarks(marks);
+function countPassed(markList, minimumMark) {
+    return markList.filter((mark) => mark >= minimumMark).length;
+}
 
-console.log("Total Marks: - function.js:33", totalMarks(marks));
+function addMark(markList, mark) {
+    if (mark >= 0 && mark <= 100) {
+        markList.push(mark);
+    } else {
+        console.log("Please enter a mark between 0 and 100.");
+    }
+}
 
-console.log("Average Marks: - function.js:35", averageMarks(marks));
+function displayReport(markList) {
+    displayMarks(markList);
+    console.log("Total marks:", calculateTotal(markList));
+    console.log("Average marks:", calculateAverage(markList).toFixed(2));
+    console.log("Highest mark:", findHighest(markList));
+    console.log("Lowest mark:", findLowest(markList));
+    console.log("Students passed:", countPassed(markList, passMark));
+    console.log("Students failed:", markList.length - countPassed(markList, passMark));
+}
 
-console.log("After Adding New Mark: - function.js:37");
+console.log("Initial Report");
+displayReport(marks);
 
 addMark(marks, 92);
 
-displayMarks(marks);
-
-console.log("New Total: - function.js:43", totalMarks(marks));
+console.log("\nReport After Adding a Mark");
+displayReport(marks);
