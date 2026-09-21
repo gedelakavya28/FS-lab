@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Product Calculator</title>
+  <style>
+    :root {
+      --ink: #17211b;
+      --muted: #65736a;
+      --paper: #f8f5ec;
+      --panel: #fffdf7;
+      --line: #d9dfd3;
+      --accent: #d95d39;
+      --accent-dark: #a53a21;
+      --highlight: #e8f0dc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 15%, #e9efdc 0 14%, transparent 15%),
+        linear-gradient(135deg, #f8f5ec 0%, #eaf0e3 100%);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    main {
+      width: min(100%, 760px);
+      padding: clamp(28px, 6vw, 62px);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 14px 14px 0 rgba(23, 33, 27, 0.08);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent-dark);
+      font: 700 0.78rem/1.2 Arial, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 520px;
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 0.95;
+      font-weight: 500;
+    }
+
+    .intro {
+      max-width: 500px;
+      margin: 20px 0 36px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.6;
+    }
+
+    .calculator {
+      display: grid;
+      gap: 22px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font: 700 0.78rem/1.2 Arial, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      padding: 14px 12px;
+      color: var(--ink);
+      background: var(--paper);
+      font: 1.05rem Georgia, "Times New Roman", serif;
+    }
+
+    input:focus {
+      outline: 3px solid rgba(217, 93, 57, 0.22);
+      border-color: var(--accent);
+    }
+
+    .total {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0 4px;
+      border-top: 2px solid var(--ink);
+    }
+
+    .total-label {
+      color: var(--muted);
+      font: 700 0.8rem/1.2 Arial, sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    #total-price {
+      color: var(--accent-dark);
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: 1;
+    }
+
+    .status {
+      margin: 0;
+      min-height: 1.3em;
+      color: var(--muted);
+      font: 0.85rem/1.4 Arial, sans-serif;
+    }
+
+    @media (max-width: 600px) {
+      .field-row { grid-template-columns: 1fr; }
+      .total { align-items: start; flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">CO-1 / Interactive DOM exercise</p>
+    <h1>Product price calculator</h1>
+    <p class="intro">Enter a product, choose the quantity, and set its unit price. The total is calculated as you type.</p>
+
+    <section class="calculator" aria-label="Product calculator">
+      <div class="field-row">
+        <label for="product-name">
+          Product name
+          <input id="product-name" type="text" placeholder="Example: Notebook">
+        </label>
+
+        <label for="quantity">
+          Quantity
+          <input id="quantity" type="number" min="0" step="1" value="1">
+        </label>
+
+        <label for="unit-price">
+          Unit price
+          <input id="unit-price" type="number" min="0" step="0.01" value="0.00">
+        </label>
+      </div>
+
+      <div class="total" aria-live="polite">
+        <span class="total-label">Total price</span>
+        <strong id="total-price">$0.00</strong>
+      </div>
+      <p class="status" id="status">Enter a product and price to see the total.</p>
+    </section>
+  </main>
+
+  <script>
+    const productNameInput = document.getElementById("product-name");
+    const quantityInput = document.getElementById("quantity");
+    const unitPriceInput = document.getElementById("unit-price");
+    const totalPrice = document.getElementById("total-price");
+    const status = document.getElementById("status");
+
+    function calculateTotal(quantity, unitPrice) {
+      return quantity * unitPrice;
+    }
+
+    function updateTotal() {
+      const productName = productNameInput.value.trim();
+      const quantity = Number(quantityInput.value) || 0;
+      const unitPrice = Number(unitPriceInput.value) || 0;
+      const total = calculateTotal(quantity, unitPrice);
+
+      totalPrice.textContent = `$${total.toFixed(2)}`;
+      status.textContent = productName
+        ? `${quantity} ${productName}${quantity === 1 ? "" : "s"} at $${unitPrice.toFixed(2)} each`
+        : "Enter a product and price to see the total.";
+    }
+
+    productNameInput.addEventListener("input", updateTotal);
+    quantityInput.addEventListener("input", updateTotal);
+    unitPriceInput.addEventListener("input", updateTotal);
+  </script>
+</body>
+</html>
