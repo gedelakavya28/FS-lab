@@ -3,44 +3,59 @@ class Student {
     this.name = name;
     this.rollNumber = rollNumber;
     this.department = department;
-    this.cgpa = cgpa;
+    this.cgpa = Number(cgpa).toFixed(2);
   }
 }
 
-const studentForm = document.getElementById('studentForm');
-const profileOutput = document.getElementById('profileOutput');
+const generateBtn = document.getElementById('generateBtn');
+const profileContainer = document.getElementById('profileContainer');
 
-studentForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+generateBtn.addEventListener('click', () => {
+  const name = document.getElementById('name').value.trim();
+  const rollNumber = document.getElementById('rollNumber').value.trim();
+  const department = document.getElementById('department').value.trim();
+  const cgpa = document.getElementById('cgpa').value.trim();
 
-  const formData = new FormData(studentForm);
-  const student = new Student(
-    formData.get('name').trim(),
-    formData.get('rollNumber').trim(),
-    formData.get('department').trim(),
-    Number(formData.get('cgpa')).toFixed(2)
-  );
+  if (!name || !rollNumber || !department || !cgpa) {
+    alert('Please fill in all student details.');
+    return;
+  }
 
-  profileOutput.replaceChildren();
+  const student = new Student(name, rollNumber, department, cgpa);
+  profileContainer.innerHTML = '';
+
+  const profileCard = document.createElement('div');
+  profileCard.className = 'profile-card';
 
   const heading = document.createElement('h2');
   heading.textContent = 'Student Profile';
+  profileCard.appendChild(heading);
 
-  const details = document.createElement('dl');
-  const profileDetails = [
+  const details = [
     ['Name', student.name],
     ['Roll No', student.rollNumber],
     ['Department', student.department],
     ['CGPA', student.cgpa]
   ];
 
-  profileDetails.forEach(([label, value]) => {
-    const term = document.createElement('dt');
-    term.textContent = label;
-    const description = document.createElement('dd');
-    description.textContent = value;
-    details.append(term, description);
+  details.forEach(([label, value]) => {
+    const row = document.createElement('div');
+    row.className = 'detail-row';
+
+    const labelEl = document.createElement('span');
+    labelEl.className = 'label';
+    labelEl.textContent = label + ' :';
+
+    const valueEl = document.createElement('span');
+    valueEl.className = 'value';
+    valueEl.textContent = value;
+
+    row.appendChild(labelEl);
+    row.appendChild(valueEl);
+    profileCard.appendChild(row);
   });
 
-  profileOutput.append(heading, details);
+  profileContainer.appendChild(profileCard);
 });
+
+generateBtn.click();

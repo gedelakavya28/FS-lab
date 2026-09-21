@@ -3,26 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My To-Do List</title>
+    <title>Student Profile Manager</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="todo-container">
-      <h1>My To-Do List</h1>
+    <main class="profile-manager">
+      <h1>Student Profile Manager</h1>
+      <form id="studentForm" class="student-form">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" value="Ravi Kumar" required />
 
-      <div class="todo-form">
-        <input
-          id="taskInput"
-          type="text"
-          placeholder="Enter a task..."
-          aria-label="Enter a task"
-        />
-        <button id="addTaskBtn" type="button">Add Task</button>
-      </div>
+        <label for="rollNumber">Roll Number</label>
+        <input id="rollNumber" name="rollNumber" type="text" value="A23126552001" required />
 
-      <ul id="taskList" class="task-list" aria-live="polite"></ul>
-      <p id="emptyMessage" class="empty-message">No tasks available.</p>
-    </div>
+        <label for="department">Department</label>
+        <input id="department" name="department" type="text" value="CSE (AI & ML)" required />
+
+        <label for="cgpa">CGPA</label>
+        <input id="cgpa" name="cgpa" type="number" min="0" max="10" step="0.01" value="8.42" required />
+
+        <button type="submit">Generate Profile</button>
+      </form>
+
+      <section id="profileOutput" class="profile-output" aria-live="polite"></section>
+    </main>
 
     <script src="script.js"></script>
   </body>

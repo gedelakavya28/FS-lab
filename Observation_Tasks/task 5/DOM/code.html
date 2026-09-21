@@ -1,0 +1,300 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOM Cafe Menu</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #f6efe5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s;
+        }
+
+        .menu-card {
+            width: 450px;
+            background: #fffaf3;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(70, 45, 25, 0.18);
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .coffee-icon {
+            width: 110px;
+            height: 110px;
+            margin: auto;
+            border-radius: 50%;
+            background: #d89b6c;
+            border: 10px solid #754c32;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(60, 40, 25, 0.2);
+        }
+
+        .coffee-icon::before {
+            content: "";
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            background: #5a3825;
+            border-radius: 50%;
+            left: 22px;
+            top: 22px;
+        }
+
+        .coffee-icon::after {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 5px solid #754c32;
+            border-radius: 50%;
+            right: -30px;
+            top: 28px;
+        }
+
+        h1 {
+            margin: 18px 0 5px;
+            color: #4b3022;
+        }
+
+        #special {
+            color: #a65f32;
+            font-weight: bold;
+        }
+
+        #description {
+            color: #75675d;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button {
+            border: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: #9b5b35;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #704025;
+            transform: scale(1.04);
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #f0e3d4;
+            color: #665044;
+            font-size: 14px;
+        }
+
+        .dark {
+            background: #29231f;
+        }
+
+        .dark .menu-card {
+            background: #3b322d;
+        }
+
+        .dark h1 {
+            color: #fff7ee;
+        }
+
+        .dark #description {
+            color: #d8cec4;
+        }
+
+        .dark .status {
+            background: #50453e;
+            color: #eee3d8;
+        }
+
+        .dark #special {
+            color: #e5a475;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="menu-card">
+
+        <div
+            class="coffee-icon"
+            id="coffee"
+            title="Coffee cup">
+        </div>
+
+        <h1 id="title">
+            Cozy Corner Café
+        </h1>
+
+        <div id="special">
+            Today's Special: Cappuccino
+        </div>
+
+        <p id="description">
+            Enjoy freshly prepared coffee and delicious
+            snacks in a warm and relaxing atmosphere.
+        </p>
+
+        <div class="buttons">
+
+            <button onclick="changeTitle()">
+                Change Title
+            </button>
+
+            <button onclick="changeSpecial()">
+                Change Special
+            </button>
+
+            <button onclick="changeDescription()">
+                Change Description
+            </button>
+
+            <button onclick="changeCoffee()">
+                Change Coffee
+            </button>
+
+            <button onclick="changeTheme()">
+                Change Theme
+            </button>
+
+        </div>
+
+        <div class="status" id="status">
+            DOM is ready. Try the buttons!
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Change HTML content
+
+        function changeTitle() {
+
+            const title =
+                document.getElementById("title");
+
+            title.innerText =
+                "Welcome to Brew & Bean!";
+
+            document.getElementById("status").innerText =
+                "Cafe title changed using the DOM.";
+        }
+
+
+        // Change content and style
+
+        function changeSpecial() {
+
+            const special =
+                document.getElementById("special");
+
+            special.innerText =
+                "Today's Special: Chocolate Mocha";
+
+            special.style.color = "#7b3f20";
+            special.style.fontSize = "18px";
+
+            document.getElementById("status").innerText =
+                "Special item and style changed dynamically.";
+        }
+
+
+        // Change content and style
+
+        function changeDescription() {
+
+            const description =
+                document.getElementById("description");
+
+            description.innerText =
+                "Fresh coffee, tasty desserts and a perfect place to relax.";
+
+            description.style.fontSize = "17px";
+            description.style.fontStyle = "italic";
+
+            document.getElementById("status").innerText =
+                "Description and font style changed.";
+        }
+
+
+        // Change style and attribute
+
+        function changeCoffee() {
+
+            const coffee =
+                document.getElementById("coffee");
+
+            coffee.style.background =
+                "#d6a6e8";
+
+            coffee.style.borderColor =
+                "#814b9b";
+
+            coffee.style.transform =
+                "rotate(8deg) scale(1.08)";
+
+            coffee.setAttribute(
+                "title",
+                "Updated coffee cup"
+            );
+
+            document.getElementById("status").innerText =
+                "Coffee style and title attribute changed.";
+        }
+
+
+        // Change page theme
+
+        function changeTheme() {
+
+            document.body.classList.toggle("dark");
+
+            document.getElementById("status").innerText =
+                "Page theme changed using the DOM.";
+        }
+
+    </script>
+
+</body>
+
+</html>
+```

@@ -7,26 +7,27 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="profile-manager">
+    <div class="page-wrap">
       <h1>Student Profile Manager</h1>
-      <form id="studentForm" class="student-form">
+
+      <div class="student-form">
         <label for="name">Name</label>
-        <input id="name" name="name" type="text" value="Ravi Kumar" required />
+        <input id="name" type="text" placeholder="Enter student name" value="Ravi Kumar" />
 
         <label for="rollNumber">Roll Number</label>
-        <input id="rollNumber" name="rollNumber" type="text" value="A23126552001" required />
+        <input id="rollNumber" type="text" placeholder="Enter roll number" value="A23126552001" />
 
         <label for="department">Department</label>
-        <input id="department" name="department" type="text" value="CSE (AI & ML)" required />
+        <input id="department" type="text" placeholder="Enter department" value="CSE (AI & ML)" />
 
         <label for="cgpa">CGPA</label>
-        <input id="cgpa" name="cgpa" type="number" min="0" max="10" step="0.01" value="8.42" required />
+        <input id="cgpa" type="number" step="0.01" min="0" max="10" placeholder="Enter CGPA" value="8.42" />
 
-        <button type="submit">Generate Profile</button>
-      </form>
+        <button id="generateBtn" type="button">Generate Profile</button>
+      </div>
 
-      <section id="profileOutput" class="profile-output" aria-live="polite"></section>
-    </main>
+      <div id="profileContainer" aria-live="polite"></div>
+    </div>
 
     <script src="script.js"></script>
   </body>
