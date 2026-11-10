@@ -7,4 +7,36 @@
 .stats { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-bottom:22px; }.stats div,.card { background:white; border:1px solid var(--line); border-radius:15px; box-shadow:0 5px 20px #1c344b08; }.stats div { padding:19px 24px; }.stats strong { display:block; font:700 28px "Space Grotesk"; }.stats span { color:var(--muted); font-size:13px; }
 .content-grid { display:grid; grid-template-columns:330px 1fr; gap:22px; align-items:start; }.card { padding:25px; }.card-heading { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:22px; }.card h2 { font:600 21px "Space Grotesk"; margin:0; }.link-button,.action { border:0; background:none; color:var(--blue); cursor:pointer; font:600 12px "DM Sans"; }.form-card label { display:block; color:#4e5965; font-size:12px; font-weight:600; margin-bottom:15px; }.form-card input,.form-card select,.search { width:100%; border:1px solid #dfe4ea; border-radius:8px; padding:11px 12px; margin-top:7px; color:var(--ink); background:white; font:14px "DM Sans"; outline:none; }.form-card input:focus,.form-card select:focus,.search:focus { border-color:var(--blue); box-shadow:0 0 0 3px #2764e714; }.two-col { display:grid; grid-template-columns:1fr 1fr; gap:11px; }.primary-button { width:100%; margin-top:4px; background:var(--blue); color:white; border:0; padding:13px; border-radius:8px; cursor:pointer; font:600 14px "DM Sans"; }.primary-button span { float:right; font-size:18px; line-height:13px; }.message { border-radius:7px; padding:10px; margin-top:12px; font-size:12px; }.message.success { color:var(--green); background:#e9f8f1; }.message.error { color:#b33a3a; background:#fff0f0; }
 .list-heading { align-items:center; }.search { width:190px; margin:0; font-size:12px; }.table-wrap { overflow:auto; } table { width:100%; border-collapse:collapse; font-size:13px; } th { color:#89939c; font-size:10px; letter-spacing:1px; text-align:left; text-transform:uppercase; padding:0 12px 12px; } td { border-top:1px solid var(--line); padding:14px 12px; white-space:nowrap; }.student-name { display:flex; align-items:center; gap:10px; }.avatar { background:#e9efff; color:var(--blue); border-radius:50%; display:grid; place-content:center; width:32px; height:32px; font-weight:700; }.student-name strong,.student-name small { display:block; }.student-name small { color:var(--muted); font-size:11px; margin-top:3px; }.status { padding:5px 9px; border-radius:20px; font-size:11px; font-weight:600; }.status.active { background:#e8f7f0; color:var(--green); }.status.inactive { background:#f1f2f4; color:#727b84; }.action { margin-right:10px; }.action.danger { color:#c25b5b; }.empty { color:var(--muted); padding:30px 0; text-align:center; } footer { text-align:center; color:#9aa3ac; font-size:12px; padding-top:27px; }
-@media (max-width:800px) { .shell { padding:25px 16px; }.hero h1 { font-size:30px; }.content-grid { grid-template-columns:1fr; }.stats { gap:8px; }.stats div { padding:15px; }.stats strong { font-size:23px; }.list-heading { display:block; }.search { width:100%; margin-top:14px; } }
+@media (max-width:800px) {
+  .shell { padding:25px 16px; }
+  .hero { align-items:flex-start; margin-bottom:28px; }
+  .hero h1 { font-size:30px; }
+  .subtitle { max-width:32rem; font-size:14px; line-height:1.5; }
+  .content-grid { grid-template-columns:1fr; }
+  .stats { gap:8px; }
+  .stats div { padding:15px; }
+  .stats strong { font-size:23px; }
+  .list-heading { display:block; }
+  .search { width:100%; margin-top:14px; }
+  .list-card { overflow:hidden; }
+  .table-wrap { margin:0 -25px; padding:0 25px; }
+  table { min-width:680px; }
+}
+
+@media (max-width:520px) {
+  .shell { padding:20px 12px; }
+  .hero { gap:14px; }
+  .hero-badge { flex:0 0 56px; width:56px; height:56px; border-radius:16px; font-size:17px; }
+  .hero h1 { font-size:27px; }
+  .eyebrow { font-size:10px; letter-spacing:1.3px; }
+  .subtitle { font-size:13px; }
+  .stats { grid-template-columns:1fr; }
+  .stats div { padding:13px 16px; }
+  .stats strong { font-size:21px; }
+  .card { padding:18px; border-radius:12px; }
+  .card-heading { margin-bottom:18px; }
+  .card h2 { font-size:19px; }
+  .two-col { grid-template-columns:1fr; gap:0; }
+  .table-wrap { margin:0 -18px; padding:0 18px; }
+  footer { padding-top:20px; line-height:1.5; }
+}
