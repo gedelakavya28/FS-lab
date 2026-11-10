@@ -1,0 +1,16 @@
+{
+  "name": "student-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CampusPulse, a full-stack student records application built with React, Express and MongoDB Atlas.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^8.19.1"
+  }
+}
